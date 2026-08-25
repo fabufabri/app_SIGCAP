@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.ReportesController"
+    prefWidth="1200"
+    prefHeight="700"
+    style="-fx-background-color:#F4F7FA;">
+
+    <left>
+
+        <VBox
+            prefWidth="220"
+            spacing="4"
+            style="-fx-background-color:#062B4D;">
+
+            <padding>
+                <Insets
+                    top="20"
+                    right="10"
+                    bottom="20"
+                    left="10"/>
+            </padding>
+
+            <Label
+                text="SIGCAP"
+                style="-fx-text-fill:white;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+            <Label
+                text="Reportes"
+                style="-fx-text-fill:#BFD0DF;-fx-font-size:12px;"/>
+
+            <VBox
+                VBox.vgrow="ALWAYS"
+                spacing="4"
+                style="-fx-padding:20 0 0 0;">
+
+                <Button
+                    fx:id="btn_ot"
+                    text="Órdenes de Trabajo"
+                    onAction="#acc_ot"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="44"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    fx:id="btn_produccion"
+                    text="Producción"
+                    onAction="#acc_produccion"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="44"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    fx:id="btn_artes"
+                    text="Artes"
+                    onAction="#acc_artes"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="44"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    fx:id="btn_instalaciones"
+                    text="Instalaciones"
+                    onAction="#acc_instalaciones"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="44"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    fx:id="btn_terceros"
+                    text="Terceros"
+                    onAction="#acc_terceros"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="44"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    fx:id="btn_clientes"
+                    text="Clientes"
+                    onAction="#acc_clientes"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="44"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+            </VBox>
+
+            <Button
+                fx:id="btn_cerrar"
+                text="←   Volver al Dashboard"
+                onAction="#acc_cerrar"
+                maxWidth="Infinity"
+                prefHeight="45"
+                alignment="CENTER_LEFT"
+                style="-fx-background-color:#0878D1;-fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;-fx-background-radius:5;"/>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <VBox
+            spacing="20"
+            style="-fx-background-color:#F4F7FA;">
+
+            <padding>
+                <Insets
+                    top="25"
+                    right="30"
+                    bottom="25"
+                    left="30"/>
+            </padding>
+
+            <VBox spacing="4">
+
+                <Label
+                    text="REPORTES"
+                    style="-fx-text-fill:#123B5D;-fx-font-size:24px;-fx-font-weight:bold;"/>
+
+                <Label
+                    text="Consultas y seguimiento de la operación de SIGCAP"
+                    style="-fx-text-fill:#64748B;-fx-font-size:13px;"/>
+
+            </VBox>
+
+            <GridPane
+                hgap="18"
+                vgap="18"
+                VBox.vgrow="ALWAYS">
+
+                <columnConstraints>
+
+                    <ColumnConstraints
+                        percentWidth="33.33"
+                        hgrow="ALWAYS"/>
+
+                    <ColumnConstraints
+                        percentWidth="33.33"
+                        hgrow="ALWAYS"/>
+
+                    <ColumnConstraints
+                        percentWidth="33.34"
+                        hgrow="ALWAYS"/>
+
+                </columnConstraints>
+
+                <rowConstraints>
+
+                    <RowConstraints
+                        percentHeight="50"
+                        vgrow="ALWAYS"/>
+
+                    <RowConstraints
+                        percentHeight="50"
+                        vgrow="ALWAYS"/>
+
+                </rowConstraints>
+
+                <Button
+                    text="ÓRDENES DE TRABAJO"
+                    onAction="#acc_ot"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="0"
+                    maxWidth="Infinity"
+                    maxHeight="Infinity"
+                    style="-fx-background-color:white;-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;-fx-border-color:#D5DDE5;-fx-border-width:1;-fx-background-radius:7;-fx-border-radius:7;"/>
+
+                <Button
+                    text="PRODUCCIÓN"
+                    onAction="#acc_produccion"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="0"
+                    maxWidth="Infinity"
+                    maxHeight="Infinity"
+                    style="-fx-background-color:white;-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;-fx-border-color:#D5DDE5;-fx-border-width:1;-fx-background-radius:7;-fx-border-radius:7;"/>
+
+                <Button
+                    text="ARTES"
+                    onAction="#acc_artes"
+                    GridPane.columnIndex="2"
+                    GridPane.rowIndex="0"
+                    maxWidth="Infinity"
+                    maxHeight="Infinity"
+                    style="-fx-background-color:white;-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;-fx-border-color:#D5DDE5;-fx-border-width:1;-fx-background-radius:7;-fx-border-radius:7;"/>
+
+                <Button
+                    text="INSTALACIONES"
+                    onAction="#acc_instalaciones"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="1"
+                    maxWidth="Infinity"
+                    maxHeight="Infinity"
+                    style="-fx-background-color:white;-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;-fx-border-color:#D5DDE5;-fx-border-width:1;-fx-background-radius:7;-fx-border-radius:7;"/>
+
+                <Button
+                    text="TERCEROS"
+                    onAction="#acc_terceros"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="1"
+                    maxWidth="Infinity"
+                    maxHeight="Infinity"
+                    style="-fx-background-color:white;-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;-fx-border-color:#D5DDE5;-fx-border-width:1;-fx-background-radius:7;-fx-border-radius:7;"/>
+
+                <Button
+                    text="CLIENTES"
+                    onAction="#acc_clientes"
+                    GridPane.columnIndex="2"
+                    GridPane.rowIndex="1"
+                    maxWidth="Infinity"
+                    maxHeight="Infinity"
+                    style="-fx-background-color:white;-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;-fx-border-color:#D5DDE5;-fx-border-width:1;-fx-background-radius:7;-fx-border-radius:7;"/>
+
+            </GridPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

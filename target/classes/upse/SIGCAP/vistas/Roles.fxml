@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.RolesController"
+    prefWidth="900"
+    prefHeight="700"
+    style="-fx-background-color:#E4E9EB;">
+
+    <VBox
+        spacing="0"
+        AnchorPane.topAnchor="0"
+        AnchorPane.bottomAnchor="0"
+        AnchorPane.leftAnchor="0"
+        AnchorPane.rightAnchor="0">
+
+        <!-- CABECERA -->
+
+        <VBox
+            prefHeight="98"
+            spacing="5"
+            style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets
+                    top="18"
+                    right="30"
+                    bottom="18"
+                    left="30"/>
+            </padding>
+
+            <Label
+                text="ROLES Y PERMISOS"
+                style="-fx-text-fill:white;
+                       -fx-font-size:24px;
+                       -fx-font-weight:bold;"/>
+
+            <Label
+                text="Control de acceso a los módulos de SIGCAP"
+                style="-fx-text-fill:#DDEAF6;
+                       -fx-font-size:13px;"/>
+
+        </VBox>
+
+
+        <!-- CONTENIDO -->
+
+        <VBox
+            spacing="18"
+            VBox.vgrow="ALWAYS">
+
+            <padding>
+                <Insets
+                    top="24"
+                    right="30"
+                    bottom="20"
+                    left="30"/>
+            </padding>
+
+
+            <!-- SELECCION DE ROL -->
+
+            <HBox
+                prefHeight="82"
+                spacing="15"
+                alignment="CENTER_LEFT"
+                style="-fx-background-color:white;
+                       -fx-background-radius:7;">
+
+                <padding>
+                    <Insets
+                        top="15"
+                        right="20"
+                        bottom="15"
+                        left="20"/>
+                </padding>
+
+                <Label
+                    text="ROL:"
+                    style="-fx-text-fill:#20487A;
+                           -fx-font-size:14px;
+                           -fx-font-weight:bold;"/>
+
+                <ComboBox
+                    fx:id="cmb_rol"
+                    prefWidth="315"
+                    prefHeight="40"/>
+
+                <Label
+                    text="Seleccione un rol para administrar sus permisos."
+                    style="-fx-text-fill:#64748B;
+                           -fx-font-size:13px;"/>
+
+            </HBox>
+
+
+            <!-- PERMISOS -->
+
+            <ScrollPane
+                fitToWidth="true"
+                fitToHeight="true"
+                VBox.vgrow="ALWAYS"
+                style="-fx-background-color:transparent;
+                       -fx-background:transparent;
+                       -fx-border-color:transparent;">
+
+                <content>
+
+                    <VBox
+                        spacing="15"
+                        style="-fx-background-color:white;
+                               -fx-background-radius:7;">
+
+                        <padding>
+                            <Insets
+                                top="22"
+                                right="25"
+                                bottom="25"
+                                left="25"/>
+                        </padding>
+
+
+                        <Label
+                            text="MÓDULOS DEL SISTEMA"
+                            style="-fx-text-fill:#20487A;
+                                   -fx-font-size:18px;
+                                   -fx-font-weight:bold;"/>
+
+
+                        <Label
+                            text="Marque los módulos que el rol podrá utilizar."
+                            style="-fx-text-fill:#64748B;
+                                   -fx-font-size:12px;"/>
+
+
+                        <!-- DASHBOARD -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15"
+                            style="-fx-background-color:#F4F7FA;
+                                   -fx-background-radius:5;">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_dashboard"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Dashboard"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;
+                                       -fx-font-weight:bold;"/>
+
+                        </HBox>
+
+
+                        <!-- NUEVA OT -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_nueva_ot"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Nueva OT"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- BUSCAR OT -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15"
+                            style="-fx-background-color:#F4F7FA;
+                                   -fx-background-radius:5;">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_buscar_ot"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Buscar OT"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- MIS OT -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_mis_ot"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Mis OT"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- PRODUCCION -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15"
+                            style="-fx-background-color:#F4F7FA;
+                                   -fx-background-radius:5;">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_produccion"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Producción Gráfica"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- ARTES -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_artes"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Artes"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- TERCEROS -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15"
+                            style="-fx-background-color:#F4F7FA;
+                                   -fx-background-radius:5;">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_terceros"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Terceros"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- INSTALACIONES -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_instalaciones"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Instalaciones"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- CATALOGOS -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15"
+                            style="-fx-background-color:#F4F7FA;
+                                   -fx-background-radius:5;">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_catalogos"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Catálogos"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- REPORTES -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_reportes"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Reportes"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- CONFIGURACION -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15"
+                            style="-fx-background-color:#F4F7FA;
+                                   -fx-background-radius:5;">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_configuracion"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Configuración"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- USUARIOS -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_usuarios"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Usuarios"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+
+                        <!-- ROLES -->
+
+                        <HBox
+                            prefHeight="42"
+                            alignment="CENTER_LEFT"
+                            spacing="15"
+                            style="-fx-background-color:#F4F7FA;
+                                   -fx-background-radius:5;">
+
+                            <padding>
+                                <Insets
+                                    left="15"
+                                    right="15"/>
+                            </padding>
+
+                            <CheckBox
+                                fx:id="chk_roles"
+                                prefWidth="25"/>
+
+                            <Label
+                                text="Roles y Permisos"
+                                style="-fx-text-fill:#1E293B;
+                                       -fx-font-size:13px;"/>
+
+                        </HBox>
+
+                    </VBox>
+
+                </content>
+
+            </ScrollPane>
+
+        </VBox>
+
+
+        <!-- BOTONES -->
+
+        <HBox
+            prefHeight="70"
+            spacing="10"
+            alignment="CENTER_RIGHT"
+            style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets
+                    top="12"
+                    right="25"
+                    bottom="12"
+                    left="25"/>
+            </padding>
+
+            <Button
+                fx:id="btn_ninguno"
+                text="Ninguno"
+                onAction="#acc_ninguno"
+                prefWidth="100"
+                prefHeight="40"
+                style="-fx-background-color:#E2E8F0;
+                       -fx-text-fill:#334155;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:4;"/>
+
+            <Button
+                fx:id="btn_todos"
+                text="Seleccionar todos"
+                onAction="#acc_todos"
+                prefWidth="140"
+                prefHeight="40"
+                style="-fx-background-color:#315F91;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:4;"/>
+
+            <Button
+                fx:id="btn_cerrar"
+                text="Cerrar"
+                onAction="#acc_cerrar"
+                prefWidth="100"
+                prefHeight="40"
+                style="-fx-background-color:#E2E8F0;
+                       -fx-text-fill:#334155;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:4;"/>
+
+            <Button
+                fx:id="btn_guardar"
+                text="Guardar permisos"
+                onAction="#acc_guardar"
+                prefWidth="150"
+                prefHeight="40"
+                style="-fx-background-color:#0878D1;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:4;"/>
+
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>

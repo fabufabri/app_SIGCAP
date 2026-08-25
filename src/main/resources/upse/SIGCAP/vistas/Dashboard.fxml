@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/13"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="upse.SIGCAP.controlador.DashboardController"
+            prefWidth="1500.0"
+            prefHeight="900.0"
+            style="-fx-background-color:#E4E9EB;">
+
+    <left>
+
+        <VBox prefWidth="245.0"
+              spacing="4.0"
+              style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets top="18.0"
+                        right="12.0"
+                        bottom="15.0"
+                        left="12.0"/>
+            </padding>
+
+            <children>
+
+                <Label text="SIGCAP"
+                       textFill="WHITE"
+                       style="-fx-font-size:25px;-fx-font-weight:bold;-fx-font-style:italic;"/>
+
+                <Label text="Sistema Integral de Gestión de Campañas Publicitarias"
+                       wrapText="true"
+                       textFill="WHITE"
+                       style="-fx-font-size:12px;"/>
+
+                <Region prefHeight="8.0"/>
+
+                <Button text="⌂   Dashboard"
+                        onAction="#acc_dashboard"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:#163D68;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+                <Button text="▣   Nueva Orden de Trabajo"
+                        onAction="#acc_nuevaOT"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="⌕   Buscar OT"
+                        onAction="#acc_buscarOT"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="≡   Mis OT"
+                        onAction="#acc_misOT"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="⚙   Producción Gráfica"
+                        onAction="#acc_produccionGrafica"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="✎   Artes"
+                        onAction="#acc_artes"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="♙   Terceros"
+                        onAction="#acc_terceros"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="⌖   Instalaciones"
+                        onAction="#acc_instalaciones"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="≡   Catálogos"
+                        onAction="#acc_catalogos"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="▪   Proformas"
+                        onAction="#acc_proformas"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="▪   Facturación"
+                        onAction="#acc_facturacion"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="▤   Reportes"
+                        onAction="#acc_reportes"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Button text="⚙   Configuración"
+                        onAction="#acc_configuracion"
+                        prefHeight="42.0"
+                        maxWidth="Infinity"
+                        alignment="CENTER_LEFT"
+                        style="-fx-background-color:transparent;-fx-text-fill:white;-fx-font-size:13px;"/>
+
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <Label text="SIGCAP"
+                       textFill="WHITE"
+                       style="-fx-font-size:12px;"/>
+
+                <Label text="Sistema Integral de Gestión"
+                       textFill="WHITE"
+                       style="-fx-font-size:11px;"/>
+
+            </children>
+
+        </VBox>
+
+    </left>
+
+    <center>
+
+        <VBox spacing="18.0"
+              style="-fx-background-color:#E4E9EB;">
+
+            <padding>
+                <Insets top="25.0"
+                        right="30.0"
+                        bottom="25.0"
+                        left="30.0"/>
+            </padding>
+
+            <children>
+
+                <HBox alignment="CENTER_LEFT">
+
+                    <children>
+
+                        <VBox spacing="3.0">
+
+                            <children>
+
+                                <Label text="DASHBOARD"
+                                       textFill="#20487A"
+                                       style="-fx-font-size:28px;-fx-font-weight:bold;-fx-font-style:italic;"/>
+
+                                <Label text="Resumen general de gestión"
+                                       textFill="#607080"
+                                       style="-fx-font-size:14px;"/>
+
+                            </children>
+
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <Label text="SIGCAP"
+                               textFill="#20487A"
+                               style="-fx-font-size:18px;-fx-font-weight:bold;"/>
+
+                    </children>
+
+                </HBox>
+
+                <HBox spacing="15.0"
+                      prefHeight="125.0">
+
+                    <children>
+
+                        <VBox alignment="CENTER"
+                              spacing="8.0"
+                              HBox.hgrow="ALWAYS"
+                              style="-fx-background-color:white;-fx-background-radius:8;-fx-border-color:#D9E0E5;-fx-border-radius:8;">
+
+                            <children>
+
+                                <Label text="ÓRDENES DE TRABAJO"
+                                       textFill="#607080"
+                                       style="-fx-font-size:13px;-fx-font-weight:bold;"/>
+
+                                <Label text="18"
+                                       textFill="#20487A"
+                                       style="-fx-font-size:32px;-fx-font-weight:bold;"/>
+
+                                <Label text="Registradas"
+                                       textFill="#8A969F"
+                                       style="-fx-font-size:11px;"/>
+
+                            </children>
+
+                        </VBox>
+
+                        <VBox alignment="CENTER"
+                              spacing="8.0"
+                              HBox.hgrow="ALWAYS"
+                              style="-fx-background-color:white;-fx-background-radius:8;-fx-border-color:#D9E0E5;-fx-border-radius:8;">
+
+                            <children>
+
+                                <Label text="EN PRODUCCIÓN"
+                                       textFill="#607080"
+                                       style="-fx-font-size:13px;-fx-font-weight:bold;"/>
+
+                                <Label text="9"
+                                       textFill="#20487A"
+                                       style="-fx-font-size:32px;-fx-font-weight:bold;"/>
+
+                                <Label text="Ítems activos"
+                                       textFill="#8A969F"
+                                       style="-fx-font-size:11px;"/>
+
+                            </children>
+
+                        </VBox>
+
+                        <VBox alignment="CENTER"
+                              spacing="8.0"
+                              HBox.hgrow="ALWAYS"
+                              style="-fx-background-color:white;-fx-background-radius:8;-fx-border-color:#D9E0E5;-fx-border-radius:8;">
+
+                            <children>
+
+                                <Label text="EN ARTES"
+                                       textFill="#607080"
+                                       style="-fx-font-size:13px;-fx-font-weight:bold;"/>
+
+                                <Label text="3"
+                                       textFill="#20487A"
+                                       style="-fx-font-size:32px;-fx-font-weight:bold;"/>
+
+                                <Label text="Pendientes"
+                                       textFill="#8A969F"
+                                       style="-fx-font-size:11px;"/>
+
+                            </children>
+
+                        </VBox>
+
+                        <VBox alignment="CENTER"
+                              spacing="8.0"
+                              HBox.hgrow="ALWAYS"
+                              style="-fx-background-color:white;-fx-background-radius:8;-fx-border-color:#D9E0E5;-fx-border-radius:8;">
+
+                            <children>
+
+                                <Label text="INSTALACIONES"
+                                       textFill="#607080"
+                                       style="-fx-font-size:13px;-fx-font-weight:bold;"/>
+
+                                <Label text="3"
+                                       textFill="#20487A"
+                                       style="-fx-font-size:32px;-fx-font-weight:bold;"/>
+
+                                <Label text="En proceso"
+                                       textFill="#8A969F"
+                                       style="-fx-font-size:11px;"/>
+
+                            </children>
+
+                        </VBox>
+
+                        <VBox alignment="CENTER"
+                              spacing="8.0"
+                              HBox.hgrow="ALWAYS"
+                              style="-fx-background-color:white;-fx-background-radius:8;-fx-border-color:#D9E0E5;-fx-border-radius:8;">
+
+                            <children>
+
+                                <Label text="COMPLETADAS"
+                                       textFill="#607080"
+                                       style="-fx-font-size:13px;-fx-font-weight:bold;"/>
+
+                                <Label text="2"
+                                       textFill="#20487A"
+                                       style="-fx-font-size:32px;-fx-font-weight:bold;"/>
+
+                                <Label text="Finalizadas"
+                                       textFill="#8A969F"
+                                       style="-fx-font-size:11px;"/>
+
+                            </children>
+
+                        </VBox>
+
+                    </children>
+
+                </HBox>
+
+                <HBox spacing="18.0"
+                      VBox.vgrow="ALWAYS">
+
+                    <children>
+
+                        <VBox spacing="10.0"
+                              HBox.hgrow="ALWAYS"
+                              style="-fx-background-color:white;-fx-background-radius:8;-fx-border-color:#D9E0E5;-fx-border-radius:8;">
+
+                            <padding>
+                                <Insets top="18.0"
+                                        right="18.0"
+                                        bottom="18.0"
+                                        left="18.0"/>
+                            </padding>
+
+                            <children>
+
+                                <Label text="ESTADO DE LAS ÓRDENES"
+                                       textFill="#20487A"
+                                       style="-fx-font-size:16px;-fx-font-weight:bold;"/>
+
+                                <BarChart fx:id="bar_estado"
+                                          legendVisible="false"
+                                          animated="false"
+                                          VBox.vgrow="ALWAYS">
+
+                                    <xAxis>
+                                        <CategoryAxis/>
+                                    </xAxis>
+
+                                    <yAxis>
+                                        <NumberAxis forceZeroInRange="true"/>
+                                    </yAxis>
+
+                                </BarChart>
+
+                            </children>
+
+                        </VBox>
+
+                        <VBox prefWidth="390.0"
+                              spacing="10.0"
+                              style="-fx-background-color:white;-fx-background-radius:8;-fx-border-color:#D9E0E5;-fx-border-radius:8;">
+
+                            <padding>
+                                <Insets top="18.0"
+                                        right="18.0"
+                                        bottom="18.0"
+                                        left="18.0"/>
+                            </padding>
+
+                            <children>
+
+                                <Label text="DISTRIBUCIÓN POR ESTADO"
+                                       textFill="#20487A"
+                                       style="-fx-font-size:16px;-fx-font-weight:bold;"/>
+
+                                <PieChart fx:id="pie_estado"
+                                          legendVisible="true"
+                                          labelsVisible="true"
+                                          animated="false"
+                                          VBox.vgrow="ALWAYS"/>
+
+                            </children>
+
+                        </VBox>
+
+                    </children>
+
+                </HBox>
+
+            </children>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

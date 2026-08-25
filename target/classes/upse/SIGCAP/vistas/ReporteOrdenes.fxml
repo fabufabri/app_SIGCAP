@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.ReporteOrdenesController"
+    prefWidth="1400"
+    prefHeight="800"
+    style="-fx-background-color:#E4E9EB;">
+
+    <VBox
+        spacing="12"
+        AnchorPane.topAnchor="0"
+        AnchorPane.bottomAnchor="0"
+        AnchorPane.leftAnchor="0"
+        AnchorPane.rightAnchor="0">
+
+        <padding>
+            <Insets
+                top="15"
+                right="20"
+                bottom="15"
+                left="20"/>
+        </padding>
+
+        <!-- CABECERA -->
+
+        <HBox
+            prefHeight="75"
+            alignment="CENTER_LEFT"
+            style="-fx-background-color:#20487A;-fx-background-radius:5;">
+
+            <padding>
+                <Insets
+                    top="12"
+                    right="20"
+                    bottom="12"
+                    left="20"/>
+            </padding>
+
+            <VBox
+                spacing="3"
+                HBox.hgrow="ALWAYS">
+
+                <Label
+                    text="REPORTE DE ÓRDENES DE TRABAJO"
+                    style="-fx-text-fill:white;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+                <Label
+                    text="Consulta general de las Órdenes de Trabajo registradas en SIGCAP"
+                    style="-fx-text-fill:#DDEAF6;-fx-font-size:12px;"/>
+
+            </VBox>
+
+            <Label
+                text="SIGCAP"
+                style="-fx-text-fill:white;-fx-font-size:15px;-fx-font-weight:bold;"/>
+
+        </HBox>
+
+        <!-- BUSQUEDA -->
+
+        <HBox
+            spacing="10"
+            alignment="CENTER_LEFT"
+            style="-fx-background-color:white;-fx-background-radius:5;">
+
+            <padding>
+                <Insets
+                    top="12"
+                    right="12"
+                    bottom="12"
+                    left="12"/>
+            </padding>
+
+            <Label
+                text="BUSCAR:"
+                style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+            <TextField
+                fx:id="txt_buscar"
+                promptText="Código OT, estado, observación..."
+                prefHeight="36"
+                HBox.hgrow="ALWAYS"/>
+
+            <Button
+                fx:id="btn_buscar"
+                text="Buscar"
+                onAction="#acc_buscar"
+                prefWidth="95"
+                prefHeight="36"
+                style="-fx-background-color:#087ED1;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+            <Button
+                fx:id="btn_actualizar"
+                text="Actualizar"
+                onAction="#acc_actualizar"
+                prefWidth="105"
+                prefHeight="36"
+                style="-fx-background-color:#20487A;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+            <Button
+                fx:id="btn_exportar"
+                text="Exportar"
+                onAction="#acc_exportar"
+                prefWidth="100"
+                prefHeight="36"
+                style="-fx-background-color:#315F91;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        </HBox>
+
+        <!-- RESUMEN -->
+
+        <HBox
+            spacing="10"
+            prefHeight="65">
+
+            <VBox
+                alignment="CENTER"
+                spacing="3"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:5;">
+
+                <Label
+                    text="TOTAL"
+                    style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                <Label
+                    fx:id="lbl_total"
+                    text="0"
+                    style="-fx-text-fill:#20487A;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+            </VBox>
+
+            <VBox
+                alignment="CENTER"
+                spacing="3"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:5;">
+
+                <Label
+                    text="PENDIENTES"
+                    style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                <Label
+                    fx:id="lbl_pendientes"
+                    text="0"
+                    style="-fx-text-fill:#20487A;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+            </VBox>
+
+            <VBox
+                alignment="CENTER"
+                spacing="3"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:5;">
+
+                <Label
+                    text="EN PROCESO"
+                    style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                <Label
+                    fx:id="lbl_proceso"
+                    text="0"
+                    style="-fx-text-fill:#20487A;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+            </VBox>
+
+            <VBox
+                alignment="CENTER"
+                spacing="3"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:5;">
+
+                <Label
+                    text="COMPLETADAS"
+                    style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                <Label
+                    fx:id="lbl_completadas"
+                    text="0"
+                    style="-fx-text-fill:#20487A;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+            </VBox>
+
+        </HBox>
+
+        <!-- TABLA -->
+
+        <VBox
+            spacing="8"
+            VBox.vgrow="ALWAYS"
+            style="-fx-background-color:white;-fx-background-radius:5;">
+
+            <padding>
+                <Insets
+                    top="12"
+                    right="12"
+                    bottom="12"
+                    left="12"/>
+            </padding>
+
+            <Label
+                text="DETALLE DEL REPORTE"
+                style="-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;"/>
+
+            <TableView
+                fx:id="tb_ordenes"
+                VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn
+                        fx:id="col_id"
+                        text="ID"
+                        prefWidth="60"/>
+
+                    <TableColumn
+                        fx:id="col_codigo"
+                        text="ORDEN DE TRABAJO"
+                        prefWidth="160"/>
+
+                    <TableColumn
+                        fx:id="col_campania"
+                        text="CAMPAÑA"
+                        prefWidth="100"/>
+
+                    <TableColumn
+                        fx:id="col_usuario"
+                        text="USUARIO"
+                        prefWidth="100"/>
+
+                    <TableColumn
+                        fx:id="col_estado"
+                        text="ESTADO"
+                        prefWidth="120"/>
+
+                    <TableColumn
+                        fx:id="col_fecha_recepcion"
+                        text="FECHA RECEPCIÓN"
+                        prefWidth="140"/>
+
+                    <TableColumn
+                        fx:id="col_fecha_registro"
+                        text="FECHA REGISTRO"
+                        prefWidth="150"/>
+
+                    <TableColumn
+                        fx:id="col_observacion"
+                        text="OBSERVACIÓN"
+                        prefWidth="500"/>
+
+                </columns>
+
+                <placeholder>
+
+                    <Label
+                        text="No existen Órdenes de Trabajo para mostrar."
+                        style="-fx-text-fill:#64748B;"/>
+
+                </placeholder>
+
+            </TableView>
+
+        </VBox>
+
+        <!-- PIE -->
+
+        <HBox
+            alignment="CENTER_RIGHT"
+            spacing="10">
+
+            <Button
+                fx:id="btn_cerrar"
+                text="Cerrar"
+                onAction="#acc_cerrar"
+                prefWidth="110"
+                prefHeight="38"
+                style="-fx-background-color:#082F52;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>

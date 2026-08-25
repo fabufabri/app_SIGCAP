@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.ReporteGeneralController"
+    prefWidth="1400"
+    prefHeight="800"
+    spacing="12"
+    style="-fx-background-color:#E4E9EB;">
+
+    <padding>
+        <Insets
+            top="15"
+            right="20"
+            bottom="15"
+            left="20"/>
+    </padding>
+
+    <HBox
+        prefHeight="75"
+        alignment="CENTER_LEFT"
+        style="-fx-background-color:#20487A;-fx-background-radius:5;">
+
+        <padding>
+            <Insets
+                top="12"
+                right="20"
+                bottom="12"
+                left="20"/>
+        </padding>
+
+        <VBox
+            spacing="3"
+            HBox.hgrow="ALWAYS">
+
+            <Label
+                fx:id="lbl_titulo"
+                text="REPORTE"
+                style="-fx-text-fill:white;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+            <Label
+                fx:id="lbl_subtitulo"
+                text="Reporte SIGCAP"
+                style="-fx-text-fill:#DDEAF6;-fx-font-size:12px;"/>
+
+        </VBox>
+
+        <Label
+            text="SIGCAP"
+            style="-fx-text-fill:white;-fx-font-size:15px;-fx-font-weight:bold;"/>
+
+    </HBox>
+
+    <HBox
+        spacing="10"
+        alignment="CENTER_LEFT"
+        style="-fx-background-color:white;-fx-background-radius:5;">
+
+        <padding>
+            <Insets
+                top="12"
+                right="12"
+                bottom="12"
+                left="12"/>
+        </padding>
+
+        <Label
+            text="BUSCAR:"
+            style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+        <TextField
+            fx:id="txt_buscar"
+            promptText="Escriba un dato para buscar..."
+            prefHeight="36"
+            HBox.hgrow="ALWAYS"/>
+
+        <Button
+            fx:id="btn_buscar"
+            text="Buscar"
+            onAction="#acc_buscar"
+            prefWidth="95"
+            prefHeight="36"
+            style="-fx-background-color:#087ED1;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        <Button
+            fx:id="btn_actualizar"
+            text="Actualizar"
+            onAction="#acc_actualizar"
+            prefWidth="105"
+            prefHeight="36"
+            style="-fx-background-color:#20487A;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        <Button
+            fx:id="btn_exportar"
+            text="Exportar"
+            onAction="#acc_exportar"
+            prefWidth="100"
+            prefHeight="36"
+            style="-fx-background-color:#315F91;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+    </HBox>
+
+    <HBox
+        spacing="10"
+        prefHeight="65">
+
+        <VBox
+            alignment="CENTER"
+            spacing="3"
+            HBox.hgrow="ALWAYS"
+            style="-fx-background-color:white;-fx-background-radius:5;">
+
+            <Label
+                text="TOTAL"
+                style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+            <Label
+                fx:id="lbl_total"
+                text="0"
+                style="-fx-text-fill:#20487A;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+        </VBox>
+
+        <VBox
+            alignment="CENTER"
+            spacing="3"
+            HBox.hgrow="ALWAYS"
+            style="-fx-background-color:white;-fx-background-radius:5;">
+
+            <Label
+                text="PENDIENTES"
+                style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+            <Label
+                fx:id="lbl_pendientes"
+                text="0"
+                style="-fx-text-fill:#20487A;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+        </VBox>
+
+        <VBox
+            alignment="CENTER"
+            spacing="3"
+            HBox.hgrow="ALWAYS"
+            style="-fx-background-color:white;-fx-background-radius:5;">
+
+            <Label
+                text="EN PROCESO"
+                style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+            <Label
+                fx:id="lbl_proceso"
+                text="0"
+                style="-fx-text-fill:#20487A;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+        </VBox>
+
+        <VBox
+            alignment="CENTER"
+            spacing="3"
+            HBox.hgrow="ALWAYS"
+            style="-fx-background-color:white;-fx-background-radius:5;">
+
+            <Label
+                text="COMPLETADOS"
+                style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+            <Label
+                fx:id="lbl_completados"
+                text="0"
+                style="-fx-text-fill:#20487A;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+        </VBox>
+
+    </HBox>
+
+    <VBox
+        spacing="8"
+        VBox.vgrow="ALWAYS"
+        style="-fx-background-color:white;-fx-background-radius:5;">
+
+        <padding>
+            <Insets
+                top="12"
+                right="12"
+                bottom="12"
+                left="12"/>
+        </padding>
+
+        <Label
+            text="DETALLE DEL REPORTE"
+            style="-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;"/>
+
+        <TableView
+            fx:id="tb_datos"
+            VBox.vgrow="ALWAYS">
+
+            <placeholder>
+
+                <Label
+                    text="No existen datos para mostrar."
+                    style="-fx-text-fill:#64748B;"/>
+
+            </placeholder>
+
+        </TableView>
+
+    </VBox>
+
+    <HBox
+        alignment="CENTER_RIGHT"
+        spacing="10">
+
+        <Button
+            fx:id="btn_cerrar"
+            text="Cerrar"
+            onAction="#acc_cerrar"
+            prefWidth="110"
+            prefHeight="38"
+            style="-fx-background-color:#082F52;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+    </HBox>
+
+</VBox>

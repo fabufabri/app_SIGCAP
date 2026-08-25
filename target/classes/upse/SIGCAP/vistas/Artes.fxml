@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.ArtesController"
+    prefWidth="1500"
+    prefHeight="850"
+    style="-fx-background-color:#E4E9EB;">
+
+    <VBox
+        spacing="12"
+        AnchorPane.topAnchor="0"
+        AnchorPane.bottomAnchor="0"
+        AnchorPane.leftAnchor="0"
+        AnchorPane.rightAnchor="0">
+
+        <padding>
+            <Insets top="18" right="22" bottom="18" left="22"/>
+        </padding>
+
+        <HBox
+            prefHeight="75"
+            alignment="CENTER_LEFT"
+            style="-fx-background-color:#20487A;-fx-background-radius:5;">
+
+            <padding>
+                <Insets top="12" right="20" bottom="12" left="20"/>
+            </padding>
+
+            <VBox
+                spacing="3"
+                HBox.hgrow="ALWAYS">
+
+                <Label
+                    text="ARTES"
+                    style="-fx-text-fill:white;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+                <Label
+                    text="Gestión de artes, revisión y aprobación de elementos"
+                    style="-fx-text-fill:#DDEAF6;-fx-font-size:12px;"/>
+
+            </VBox>
+
+            <Label
+                text="SIGCAP"
+                style="-fx-text-fill:white;-fx-font-size:14px;-fx-font-weight:bold;"/>
+
+        </HBox>
+
+        <HBox spacing="10" prefHeight="82">
+
+            <VBox
+                alignment="CENTER"
+                spacing="3"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:6;">
+
+                <Label
+                    text="TOTAL"
+                    style="-fx-text-fill:#64748B;-fx-font-size:10px;-fx-font-weight:bold;"/>
+
+                <Label
+                    fx:id="lbl_total"
+                    text="0"
+                    style="-fx-text-fill:#20487A;-fx-font-size:24px;-fx-font-weight:bold;"/>
+
+            </VBox>
+
+            <VBox
+                alignment="CENTER"
+                spacing="3"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:6;">
+
+                <Label
+                    text="PENDIENTES"
+                    style="-fx-text-fill:#64748B;-fx-font-size:10px;-fx-font-weight:bold;"/>
+
+                <Label
+                    fx:id="lbl_pendientes"
+                    text="0"
+                    style="-fx-text-fill:#20487A;-fx-font-size:24px;-fx-font-weight:bold;"/>
+
+            </VBox>
+
+            <VBox
+                alignment="CENTER"
+                spacing="3"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:6;">
+
+                <Label
+                    text="APROBADOS"
+                    style="-fx-text-fill:#64748B;-fx-font-size:10px;-fx-font-weight:bold;"/>
+
+                <Label
+                    fx:id="lbl_aprobados"
+                    text="0"
+                    style="-fx-text-fill:#20487A;-fx-font-size:24px;-fx-font-weight:bold;"/>
+
+            </VBox>
+
+            <VBox
+                alignment="CENTER"
+                spacing="3"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:6;">
+
+                <Label
+                    text="OBSERVADOS"
+                    style="-fx-text-fill:#64748B;-fx-font-size:10px;-fx-font-weight:bold;"/>
+
+                <Label
+                    fx:id="lbl_observados"
+                    text="0"
+                    style="-fx-text-fill:#20487A;-fx-font-size:24px;-fx-font-weight:bold;"/>
+
+            </VBox>
+
+        </HBox>
+
+        <VBox
+            spacing="10"
+            VBox.vgrow="ALWAYS"
+            style="-fx-background-color:white;-fx-background-radius:6;">
+
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <HBox
+                alignment="CENTER_LEFT"
+                spacing="10">
+
+                <VBox
+                    spacing="3"
+                    HBox.hgrow="ALWAYS">
+
+                    <Label
+                        text="ELEMENTOS PARA ARTES"
+                        style="-fx-text-fill:#20487A;-fx-font-size:16px;-fx-font-weight:bold;"/>
+
+                    <Label
+                        text="Elementos de las Órdenes de Trabajo que requieren gestión gráfica."
+                        style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                </VBox>
+
+                <TextField
+                    fx:id="txt_buscar"
+                    promptText="Buscar OT, local, producto..."
+                    prefWidth="250"
+                    prefHeight="34"/>
+
+            </HBox>
+
+            <TableView
+                fx:id="tb_items"
+                VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn
+                        fx:id="col_item"
+                        text="N°"
+                        prefWidth="50"/>
+
+                    <TableColumn
+                        fx:id="col_ot"
+                        text="OT"
+                        prefWidth="90"/>
+
+                    <TableColumn
+                        fx:id="col_local"
+                        text="Local"
+                        prefWidth="100"/>
+
+                    <TableColumn
+                        fx:id="col_producto"
+                        text="Producto"
+                        prefWidth="130"/>
+
+                    <TableColumn
+                        fx:id="col_descripcion"
+                        text="Descripción"
+                        prefWidth="190"/>
+
+                    <TableColumn
+                        fx:id="col_medida"
+                        text="Medida"
+                        prefWidth="100"/>
+
+                    <TableColumn
+                        fx:id="col_material"
+                        text="Material"
+                        prefWidth="120"/>
+
+                    <TableColumn
+                        fx:id="col_cantidad"
+                        text="Cantidad"
+                        prefWidth="80"/>
+
+                    <TableColumn
+                        fx:id="col_estado"
+                        text="Estado"
+                        prefWidth="120"/>
+
+                    <TableColumn
+                        fx:id="col_progreso"
+                        text="Progreso"
+                        prefWidth="80"/>
+
+                </columns>
+
+                <placeholder>
+
+                    <Label
+                        text="No existen elementos pendientes de gestión gráfica."
+                        style="-fx-text-fill:#64748B;"/>
+
+                </placeholder>
+
+            </TableView>
+
+        </VBox>
+
+        <HBox
+            spacing="12">
+
+            <VBox
+                spacing="5"
+                HBox.hgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:6;">
+
+                <padding>
+                    <Insets top="12" right="15" bottom="12" left="15"/>
+                </padding>
+
+                <Label
+                    text="DETALLE DEL ELEMENTO"
+                    style="-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;"/>
+
+                <HBox spacing="25">
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="OT"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_ot"
+                            text="-"
+                            style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="CLIENTE"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_cliente"
+                            text="-"
+                            style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="CAMPAÑA"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_campania"
+                            text="-"
+                            style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="LOCAL"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_local"
+                            text="-"
+                            style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="PRODUCTO"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_producto"
+                            text="-"
+                            style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <HBox spacing="25">
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="DESCRIPCIÓN"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_descripcion"
+                            text="-"
+                            style="-fx-text-fill:#20487A;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="MEDIDA"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_medida"
+                            text="-"
+                            style="-fx-text-fill:#20487A;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="MATERIAL"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_material"
+                            text="-"
+                            style="-fx-text-fill:#20487A;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="CANTIDAD"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_cantidad"
+                            text="0"
+                            style="-fx-text-fill:#20487A;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="ESTADO"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_estado"
+                            text="-"
+                            style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+                    </VBox>
+
+                    <VBox spacing="2">
+
+                        <Label
+                            text="PROGRESO"
+                            style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                        <Label
+                            fx:id="lbl_progreso"
+                            text="0%"
+                            style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+
+            <VBox
+                spacing="7"
+                prefWidth="180"
+                alignment="CENTER"
+                style="-fx-background-color:white;-fx-background-radius:6;">
+
+                <Button
+                    text="Aprobar"
+                    onAction="#acc_aprobar"
+                    prefWidth="150"
+                    prefHeight="34"
+                    style="-fx-background-color:#087ED1;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+                <Button
+                    text="Observar"
+                    onAction="#acc_observar"
+                    prefWidth="150"
+                    prefHeight="34"
+                    style="-fx-background-color:#20487A;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+                <Button
+                    text="Abrir OT"
+                    onAction="#acc_abrirOT"
+                    prefWidth="150"
+                    prefHeight="34"
+                    style="-fx-background-color:#315F91;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+            </VBox>
+
+        </HBox>
+
+        <HBox
+            alignment="CENTER_RIGHT"
+            spacing="8">
+
+            <Button
+                text="Actualizar"
+                onAction="#acc_actualizar"
+                prefWidth="105"
+                prefHeight="38"
+                style="-fx-background-color:#20487A;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+            <Button
+                text="Volver"
+                onAction="#acc_volver"
+                prefWidth="100"
+                prefHeight="38"
+                style="-fx-background-color:#082F52;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>

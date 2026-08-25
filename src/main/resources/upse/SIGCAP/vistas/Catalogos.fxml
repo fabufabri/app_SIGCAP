@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+    fx:id="pnl_principal"
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.CatalogosController"
+    prefWidth="1200"
+    prefHeight="700"
+    style="-fx-background-color:#F4F7FA;">
+
+    <!-- ========================================================= -->
+    <!-- MENU LATERAL                                              -->
+    <!-- ========================================================= -->
+
+    <left>
+
+        <VBox
+            fx:id="pnl_menu"
+            prefWidth="220"
+            spacing="4"
+            style="-fx-background-color:#062B4D;">
+
+            <padding>
+                <Insets
+                    top="20"
+                    right="10"
+                    bottom="20"
+                    left="10"/>
+            </padding>
+
+            <Label
+                text="SIGCAP"
+                style="-fx-text-fill:white;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+            <Label
+                text="Catálogos"
+                style="-fx-text-fill:#BFD0DF;-fx-font-size:12px;"/>
+
+            <VBox
+                VBox.vgrow="ALWAYS"
+                spacing="3"
+                style="-fx-padding:20 0 0 0;">
+
+                <Button
+                    text="Clientes"
+                    onAction="#acc_clientes"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Ciudades"
+                    onAction="#acc_ciudades"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Locales"
+                    onAction="#acc_locales"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Productos"
+                    onAction="#acc_productos"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Medidas"
+                    onAction="#acc_medidas"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Materiales"
+                    onAction="#acc_materiales"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Acabados"
+                    onAction="#acc_acabados"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Tipos de Instalación"
+                    onAction="#acc_instalaciones"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Terceros"
+                    onAction="#acc_terceros"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+                <Button
+                    text="Estados de Proceso"
+                    onAction="#acc_estados"
+                    maxWidth="Infinity"
+                    alignment="CENTER_LEFT"
+                    prefHeight="42"
+                    style="-fx-background-color:transparent;-fx-text-fill:#DDEAF6;-fx-font-size:13px;"/>
+
+            </VBox>
+
+            <!-- BOTON REGRESAR -->
+
+            <Button
+                text="←   Volver al Dashboard"
+                onAction="#acc_volver"
+                maxWidth="Infinity"
+                prefHeight="45"
+                alignment="CENTER_LEFT"
+                style="-fx-background-color:#0878D1;-fx-text-fill:white;-fx-font-size:13px;-fx-font-weight:bold;-fx-background-radius:5;"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- ========================================================= -->
+    <!-- CONTENIDO                                                  -->
+    <!-- ========================================================= -->
+
+    <center>
+
+        <VBox
+            spacing="15"
+            style="-fx-background-color:#F4F7FA;">
+
+            <padding>
+                <Insets
+                    top="25"
+                    right="30"
+                    bottom="25"
+                    left="30"/>
+            </padding>
+
+            <!-- CABECERA -->
+
+            <HBox
+                alignment="CENTER_LEFT">
+
+                <VBox
+                    spacing="4">
+
+                    <Label
+                        fx:id="lbl_titulo"
+                        text="Catálogos"
+                        style="-fx-text-fill:#123B5D;-fx-font-size:24px;-fx-font-weight:bold;"/>
+
+                    <Label
+                        fx:id="lbl_subtitulo"
+                        text="Administración de información maestra de SIGCAP"
+                        style="-fx-text-fill:#64748B;-fx-font-size:13px;"/>
+
+                </VBox>
+
+            </HBox>
+
+            <!-- AREA DE CONTENIDO -->
+
+            <StackPane
+                fx:id="pnl_contenido"
+                VBox.vgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:8;-fx-border-color:#E2E8F0;-fx-border-radius:8;">
+
+                <VBox
+                    alignment="CENTER"
+                    spacing="10">
+
+                    <Label
+                        text="Seleccione un catálogo"
+                        style="-fx-font-size:20px;-fx-font-weight:bold;-fx-text-fill:#123B5D;"/>
+
+                    <Label
+                        text="Seleccione una opción del menú para comenzar."
+                        style="-fx-font-size:13px;-fx-text-fill:#64748B;"/>
+
+                </VBox>
+
+            </StackPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

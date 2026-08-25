@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/13"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="upse.SIGCAP.controlador.FacturacionController"
+            prefWidth="1250.0"
+            prefHeight="760.0"
+            minWidth="1100.0"
+            minHeight="700.0"
+            style="-fx-background-color: #E4E9EB;">
+
+    <children>
+
+        <Pane prefHeight="65.0"
+              AnchorPane.topAnchor="0.0"
+              AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0"
+              style="-fx-background-color: #20487A;">
+
+            <children>
+
+                <Label text="FACTURACIÓN"
+                       layoutX="25.0"
+                       layoutY="17.0"
+                       style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold; -fx-font-style: italic;"/>
+
+            </children>
+
+        </Pane>
+
+        <VBox spacing="12.0"
+              AnchorPane.topAnchor="85.0"
+              AnchorPane.leftAnchor="25.0"
+              AnchorPane.rightAnchor="25.0"
+              AnchorPane.bottomAnchor="95.0">
+
+            <children>
+
+                <HBox spacing="12.0">
+
+                    <children>
+
+                        <Label text="N° Factura:"
+                               prefWidth="90.0"
+                               style="-fx-font-weight: bold;"/>
+
+                        <TextField fx:id="txt_numFactura"
+                                   prefWidth="190.0"/>
+
+                        <Label text="Fecha:"
+                               prefWidth="55.0"
+                               style="-fx-font-weight: bold;"/>
+
+                        <DatePicker fx:id="dtp_fecha"
+                                    prefWidth="160.0"/>
+
+                    </children>
+
+                </HBox>
+
+                <HBox spacing="10.0">
+
+                    <children>
+
+                        <Label text="Orden Trabajo:"
+                               prefWidth="90.0"
+                               style="-fx-font-weight: bold;"/>
+
+                        <TextField fx:id="txt_otCodigo"
+                                   prefWidth="190.0"/>
+
+                        <Button fx:id="btn_buscarOT"
+                                text="..."
+                                onAction="#acc_buscarOrden"
+                                prefWidth="45.0"/>
+
+                        <Label text="Cliente:"
+                               prefWidth="60.0"
+                               style="-fx-font-weight: bold;"/>
+
+                        <TextField fx:id="txt_cliente"
+                                   editable="false"
+                                   prefWidth="280.0"/>
+
+                        <Label text="Campaña:"
+                               prefWidth="65.0"
+                               style="-fx-font-weight: bold;"/>
+
+                        <TextField fx:id="txt_campania"
+                                   editable="false"
+                                   prefWidth="280.0"/>
+
+                    </children>
+
+                </HBox>
+
+                <HBox spacing="10.0">
+
+                    <children>
+
+                        <Label text="Responsable:"
+                               prefWidth="90.0"
+                               style="-fx-font-weight: bold;"/>
+
+                        <TextField fx:id="txt_responsable"
+                                   editable="false"
+                                   prefWidth="280.0"/>
+
+                        <Label text="Observación:"
+                               prefWidth="80.0"
+                               style="-fx-font-weight: bold;"/>
+
+                        <TextArea fx:id="txt_observacion"
+                                  prefWidth="570.0"
+                                  prefHeight="55.0"
+                                  wrapText="true"/>
+
+                    </children>
+
+                </HBox>
+
+                <TableView fx:id="tb_detalle"
+                           VBox.vgrow="ALWAYS"
+                           prefHeight="380.0">
+
+                    <columns>
+
+                        <TableColumn fx:id="col_codigo"
+                                     text="Código"
+                                     prefWidth="100.0"/>
+
+                        <TableColumn fx:id="col_producto"
+                                     text="Producto"
+                                     prefWidth="180.0"/>
+
+                        <TableColumn fx:id="col_descripcion"
+                                     text="Descripción"
+                                     prefWidth="250.0"/>
+
+                        <TableColumn fx:id="col_cantidad"
+                                     text="Cant."
+                                     prefWidth="75.0"/>
+
+                        <TableColumn fx:id="col_precio"
+                                     text="Precio"
+                                     prefWidth="100.0"/>
+
+                        <TableColumn fx:id="col_subtotal"
+                                     text="Subtotal"
+                                     prefWidth="110.0"/>
+
+                        <TableColumn fx:id="col_total"
+                                     text="Total"
+                                     prefWidth="110.0"/>
+
+                        <TableColumn fx:id="col_aplicaIva"
+                                     text="IVA"
+                                     prefWidth="70.0"/>
+
+                    </columns>
+
+                </TableView>
+
+            </children>
+        </VBox>
+
+        <HBox spacing="10.0"
+              AnchorPane.leftAnchor="25.0"
+              AnchorPane.bottomAnchor="25.0">
+
+            <children>
+
+                <CheckBox fx:id="chk_validar"
+                          text="Validar antes de grabar"
+                          selected="true"
+                          prefHeight="40.0"/>
+
+                <Button fx:id="btn_agregar"
+                        text="Agregar"
+                        onAction="#acc_agregar"
+                        prefWidth="90.0"
+                        prefHeight="40.0"/>
+
+                <Button fx:id="btn_quitar"
+                        text="Quitar"
+                        onAction="#acc_quitar"
+                        prefWidth="90.0"
+                        prefHeight="40.0"/>
+
+                <Button fx:id="btn_nuevo"
+                        text="Nuevo"
+                        onAction="#acc_nuevo"
+                        prefWidth="90.0"
+                        prefHeight="40.0"/>
+
+                <Button fx:id="btn_grabar"
+                        text="Grabar"
+                        onAction="#acc_grabar"
+                        prefWidth="90.0"
+                        prefHeight="40.0"/>
+
+                <Button fx:id="btn_consultar"
+                        text="Consultar"
+                        onAction="#acc_consultar"
+                        prefWidth="95.0"
+                        prefHeight="40.0"/>
+
+                <Button fx:id="btn_sri"
+                        text="Enviar SRI"
+                        onAction="#acc_enviarSRI"
+                        prefWidth="95.0"
+                        prefHeight="40.0"/>
+
+                <Button fx:id="btn_cerrar"
+                        text="Cerrar"
+                        onAction="#acc_cerrar"
+                        prefWidth="90.0"
+                        prefHeight="40.0"/>
+
+            </children>
+
+        </HBox>
+
+        <Pane layoutX="900.0"
+              prefWidth="320.0"
+              prefHeight="155.0"
+              AnchorPane.rightAnchor="25.0"
+              AnchorPane.bottomAnchor="15.0"
+              style="-fx-background-color: white; -fx-border-color: #CCCCCC; -fx-border-radius: 4;">
+
+            <children>
+
+                <Label text="Subtotal 12%"
+                       layoutX="20.0"
+                       layoutY="20.0"
+                       style="-fx-font-size: 14px;"/>
+
+                <TextField fx:id="txt_subtotal12"
+                           layoutX="150.0"
+                           layoutY="14.0"
+                           prefWidth="145.0"
+                           editable="false"
+                           alignment="CENTER_RIGHT"/>
+
+                <Label text="Subtotal 0%"
+                       layoutX="20.0"
+                       layoutY="55.0"
+                       style="-fx-font-size: 14px;"/>
+
+                <TextField fx:id="txt_subtotal0"
+                           layoutX="150.0"
+                           layoutY="49.0"
+                           prefWidth="145.0"
+                           editable="false"
+                           alignment="CENTER_RIGHT"/>
+
+                <Label text="IVA"
+                       layoutX="20.0"
+                       layoutY="90.0"
+                       style="-fx-font-size: 14px;"/>
+
+                <TextField fx:id="txt_iva"
+                           layoutX="150.0"
+                           layoutY="84.0"
+                           prefWidth="145.0"
+                           editable="false"
+                           alignment="CENTER_RIGHT"/>
+
+                <Label text="TOTAL"
+                       layoutX="20.0"
+                       layoutY="125.0"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+                <TextField fx:id="txt_total"
+                           layoutX="150.0"
+                           layoutY="119.0"
+                           prefWidth="145.0"
+                           editable="false"
+                           alignment="CENTER_RIGHT"
+                           style="-fx-font-weight: bold;"/>
+
+            </children>
+
+        </Pane>
+
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.NuevaOrdenTrabajoController"
+    prefWidth="1250"
+    prefHeight="760"
+    style="-fx-background-color:#E4E9EB;">
+
+    <top>
+
+        <VBox
+            spacing="3"
+            style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets
+                    top="15"
+                    right="20"
+                    bottom="15"
+                    left="20"/>
+            </padding>
+
+            <Label
+                fx:id="lbl_titulo"
+                text="NUEVA ORDEN DE TRABAJO"
+                style="-fx-text-fill:white;-fx-font-size:20px;-fx-font-weight:bold;"/>
+
+            <Label
+                text="Cabecera y detalle de la Orden de Trabajo"
+                style="-fx-text-fill:#DDEAF6;-fx-font-size:12px;"/>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <VBox
+            spacing="12"
+            style="-fx-background-color:#E4E9EB;">
+
+            <padding>
+                <Insets
+                    top="15"
+                    right="20"
+                    bottom="10"
+                    left="20"/>
+            </padding>
+
+            <VBox
+                spacing="10"
+                style="-fx-background-color:white;-fx-background-radius:6;">
+
+                <padding>
+                    <Insets
+                        top="15"
+                        right="15"
+                        bottom="15"
+                        left="15"/>
+                </padding>
+
+                <Label
+                    text="INFORMACIÓN DE LA ORDEN"
+                    style="-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;"/>
+
+                <HBox
+                    spacing="12">
+
+                    <VBox
+                        prefWidth="170"
+                        spacing="4">
+
+                        <Label
+                            text="Código OT"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <TextField
+                            fx:id="txt_codigo"
+                            editable="false"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Cliente *"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <ComboBox
+                            fx:id="cmb_cliente"
+                            maxWidth="Infinity"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Campaña *"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <ComboBox
+                            fx:id="cmb_campania"
+                            maxWidth="Infinity"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Solicitante *"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <TextField
+                            fx:id="txt_solicitante"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <HBox
+                    spacing="12">
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Ciudad *"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <ComboBox
+                            fx:id="cmb_ciudad"
+                            maxWidth="Infinity"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Fecha OT"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <DatePicker
+                            fx:id="dtp_fecha"
+                            maxWidth="Infinity"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Fecha requerida *"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <DatePicker
+                            fx:id="dtp_fecha_requerida"
+                            maxWidth="Infinity"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Prioridad"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <ComboBox
+                            fx:id="cmb_prioridad"
+                            maxWidth="Infinity"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Responsable"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <ComboBox
+                            fx:id="cmb_responsable"
+                            maxWidth="Infinity"
+                            prefHeight="34"/>
+
+                    </VBox>
+
+                </HBox>
+
+                <HBox
+                    spacing="12">
+
+                    <VBox
+                        spacing="4"
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="Observaciones"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <TextArea
+                            fx:id="txt_observaciones"
+                            prefRowCount="2"
+                            wrapText="true"/>
+
+                    </VBox>
+
+                    <VBox
+                        prefWidth="180"
+                        spacing="4">
+
+                        <Label
+                            text="Usuario"
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                        <Label
+                            fx:id="lbl_usuario"
+                            text="-"
+                            style="-fx-text-fill:#20487A;-fx-font-size:13px;-fx-font-weight:bold;"/>
+
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+
+            <VBox
+                spacing="8"
+                VBox.vgrow="ALWAYS"
+                style="-fx-background-color:white;-fx-background-radius:6;">
+
+                <padding>
+                    <Insets
+                        top="15"
+                        right="15"
+                        bottom="15"
+                        left="15"/>
+                </padding>
+
+                <HBox
+                    alignment="CENTER_LEFT"
+                    spacing="8">
+
+                    <VBox
+                        HBox.hgrow="ALWAYS">
+
+                        <Label
+                            text="DETALLE DE LA ORDEN"
+                            style="-fx-text-fill:#20487A;-fx-font-size:15px;-fx-font-weight:bold;"/>
+
+                        <Label
+                            text="Elementos que forman parte de la producción."
+                            style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                    </VBox>
+
+                    <Button
+                        text="+ Agregar"
+                        onAction="#acc_agregar"
+                        prefWidth="90"
+                        prefHeight="34"
+                        style="-fx-background-color:#0878D1;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+                    <Button
+                        text="Editar"
+                        onAction="#acc_editarDetalle"
+                        prefWidth="80"
+                        prefHeight="34"
+                        style="-fx-background-color:#20487A;-fx-text-fill:white;-fx-background-radius:4;"/>
+
+                    <Button
+                        text="Eliminar"
+                        onAction="#acc_eliminarDetalle"
+                        prefWidth="85"
+                        prefHeight="34"
+                        style="-fx-background-color:#E4E9EB;-fx-text-fill:#20487A;-fx-background-radius:4;"/>
+
+                </HBox>
+
+                <TableView
+                    fx:id="tb_detalles"
+                    VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn
+                            fx:id="col_numero"
+                            text="N°"
+                            prefWidth="50"/>
+
+                        <TableColumn
+                            fx:id="col_local"
+                            text="Local"
+                            prefWidth="130"/>
+
+                        <TableColumn
+                            fx:id="col_producto"
+                            text="Producto"
+                            prefWidth="130"/>
+
+                        <TableColumn
+                            fx:id="col_descripcion"
+                            text="Descripción"
+                            prefWidth="210"/>
+
+                        <TableColumn
+                            fx:id="col_medida"
+                            text="Medida"
+                            prefWidth="110"/>
+
+                        <TableColumn
+                            fx:id="col_material"
+                            text="Material"
+                            prefWidth="120"/>
+
+                        <TableColumn
+                            fx:id="col_cantidad"
+                            text="Cantidad"
+                            prefWidth="80"/>
+
+                        <TableColumn
+                            fx:id="col_instalacion"
+                            text="Instalación"
+                            prefWidth="100"/>
+
+                    </columns>
+
+                    <placeholder>
+
+                        <Label
+                            text="Agregue los elementos de la Orden de Trabajo."
+                            style="-fx-text-fill:#64748B;"/>
+
+                    </placeholder>
+
+                </TableView>
+
+                <HBox
+                    alignment="CENTER_RIGHT"
+                    spacing="8">
+
+                    <Label
+                        text="Cantidad total:"
+                        style="-fx-text-fill:#64748B;-fx-font-size:12px;"/>
+
+                    <Label
+                        fx:id="lbl_total"
+                        text="0"
+                        style="-fx-text-fill:#20487A;-fx-font-size:18px;-fx-font-weight:bold;"/>
+
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+    <bottom>
+
+        <HBox
+            alignment="CENTER_RIGHT"
+            spacing="8"
+            style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets
+                    top="10"
+                    right="20"
+                    bottom="10"
+                    left="20"/>
+            </padding>
+
+            <Button
+                text="Limpiar"
+                onAction="#acc_limpiar"
+                prefWidth="85"
+                prefHeight="36"
+                style="-fx-background-color:#E4E9EB;-fx-text-fill:#20487A;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+            <Button
+                text="Cancelar"
+                onAction="#acc_cancelar"
+                prefWidth="90"
+                prefHeight="36"
+                style="-fx-background-color:transparent;-fx-text-fill:white;-fx-border-color:white;-fx-border-radius:4;"/>
+
+            <Button
+                text="Guardar"
+                onAction="#acc_grabar"
+                prefWidth="100"
+                prefHeight="36"
+                style="-fx-background-color:#0878D1;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>

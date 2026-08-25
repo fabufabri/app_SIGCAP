@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.ConfiguracionController"
+    prefWidth="1250"
+    prefHeight="760"
+    style="-fx-background-color:#F4F7FA;">
+
+    <!-- MENU LATERAL -->
+
+    <left>
+
+        <VBox
+            prefWidth="225"
+            spacing="6"
+            style="-fx-background-color:#062B4D;">
+
+            <padding>
+                <Insets
+                    top="20"
+                    right="10"
+                    bottom="20"
+                    left="10"/>
+            </padding>
+
+            <Label
+                text="SIGCAP"
+                style="-fx-text-fill:white;
+                       -fx-font-size:22px;
+                       -fx-font-weight:bold;"/>
+
+            <Label
+                text="Configuración"
+                style="-fx-text-fill:#BFD0DF;
+                       -fx-font-size:12px;"/>
+
+            <Separator
+                style="-fx-background-color:#31536F;"/>
+
+            <Button
+                text="⚙  Parámetros generales"
+                maxWidth="Infinity"
+                alignment="CENTER_LEFT"
+                prefHeight="45"
+                style="-fx-background-color:#0878D1;
+                       -fx-text-fill:white;
+                       -fx-font-size:13px;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:5;"/>
+
+            <Button
+                fx:id="btn_usuarios"
+                text="👤  Usuarios"
+                onAction="#acc_usuarios"
+                maxWidth="Infinity"
+                alignment="CENTER_LEFT"
+                prefHeight="45"
+                style="-fx-background-color:transparent;
+                       -fx-text-fill:#DDEAF6;
+                       -fx-font-size:13px;"/>
+
+            <Button
+                fx:id="btn_roles"
+                text="🔐  Roles y permisos"
+                onAction="#acc_roles"
+                maxWidth="Infinity"
+                alignment="CENTER_LEFT"
+                prefHeight="45"
+                style="-fx-background-color:transparent;
+                       -fx-text-fill:#DDEAF6;
+                       -fx-font-size:13px;"/>
+
+            <VBox
+                VBox.vgrow="ALWAYS"/>
+
+        </VBox>
+
+    </left>
+
+    <!-- CONTENIDO -->
+
+    <center>
+
+        <VBox
+            spacing="12"
+            style="-fx-background-color:#F4F7FA;">
+
+            <padding>
+                <Insets
+                    top="22"
+                    right="28"
+                    bottom="20"
+                    left="28"/>
+            </padding>
+
+            <HBox
+                alignment="CENTER_LEFT">
+
+                <VBox
+                    spacing="3"
+                    HBox.hgrow="ALWAYS">
+
+                    <Label
+                        text="Configuración"
+                        style="-fx-text-fill:#123B5D;
+                               -fx-font-size:24px;
+                               -fx-font-weight:bold;"/>
+
+                    <Label
+                        text="Parámetros generales y administrativos de SIGCAP"
+                        style="-fx-text-fill:#64748B;
+                               -fx-font-size:13px;"/>
+
+                </VBox>
+
+                <VBox
+                    alignment="CENTER_RIGHT"
+                    spacing="2">
+
+                    <Label
+                        text="USUARIO ACTIVO"
+                        style="-fx-text-fill:#64748B;
+                               -fx-font-size:10px;
+                               -fx-font-weight:bold;"/>
+
+                    <Label
+                        fx:id="lbl_usuario"
+                        text="Usuario"
+                        style="-fx-text-fill:#20487A;
+                               -fx-font-size:13px;
+                               -fx-font-weight:bold;"/>
+
+                </VBox>
+
+            </HBox>
+
+            <ScrollPane
+                fitToWidth="true"
+                VBox.vgrow="ALWAYS"
+                style="-fx-background-color:transparent;
+                       -fx-background:transparent;">
+
+                <content>
+
+                    <VBox
+                        spacing="15">
+
+                        <!-- DATOS EMPRESA -->
+
+                        <VBox
+                            spacing="12"
+                            style="-fx-background-color:white;
+                                   -fx-background-radius:7;
+                                   -fx-border-color:#E2E8F0;
+                                   -fx-border-radius:7;">
+
+                            <padding>
+                                <Insets
+                                    top="18"
+                                    right="20"
+                                    bottom="18"
+                                    left="20"/>
+                            </padding>
+
+                            <Label
+                                text="DATOS DE LA EMPRESA"
+                                style="-fx-text-fill:#20487A;
+                                       -fx-font-size:15px;
+                                       -fx-font-weight:bold;"/>
+
+                            <Label
+                                text="Información utilizada en reportes y documentos del sistema."
+                                style="-fx-text-fill:#64748B;
+                                       -fx-font-size:12px;"/>
+
+                            <GridPane
+                                hgap="12"
+                                vgap="10">
+
+                                <columnConstraints>
+
+                                    <ColumnConstraints
+                                        percentWidth="18"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="32"
+                                        hgrow="ALWAYS"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="18"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="32"
+                                        hgrow="ALWAYS"/>
+
+                                </columnConstraints>
+
+                                <Label
+                                    text="Empresa:"
+                                    GridPane.rowIndex="0"
+                                    GridPane.columnIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_empresa"
+                                    GridPane.rowIndex="0"
+                                    GridPane.columnIndex="1"
+                                    GridPane.columnSpan="3"
+                                    promptText="Nombre de la empresa"/>
+
+                                <Label
+                                    text="RUC:"
+                                    GridPane.rowIndex="1"
+                                    GridPane.columnIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_ruc"
+                                    GridPane.rowIndex="1"
+                                    GridPane.columnIndex="1"
+                                    promptText="RUC"/>
+
+                                <Label
+                                    text="Teléfono:"
+                                    GridPane.rowIndex="1"
+                                    GridPane.columnIndex="2"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_telefono"
+                                    GridPane.rowIndex="1"
+                                    GridPane.columnIndex="3"
+                                    promptText="Teléfono"/>
+
+                                <Label
+                                    text="Dirección:"
+                                    GridPane.rowIndex="2"
+                                    GridPane.columnIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_direccion"
+                                    GridPane.rowIndex="2"
+                                    GridPane.columnIndex="1"
+                                    GridPane.columnSpan="3"
+                                    promptText="Dirección"/>
+
+                                <Label
+                                    text="Correo:"
+                                    GridPane.rowIndex="3"
+                                    GridPane.columnIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_correo"
+                                    GridPane.rowIndex="3"
+                                    GridPane.columnIndex="1"
+                                    GridPane.columnSpan="3"
+                                    promptText="correo@empresa.com"/>
+
+                            </GridPane>
+
+                        </VBox>
+
+                        <!-- PARAMETROS -->
+
+                        <VBox
+                            spacing="12"
+                            style="-fx-background-color:white;
+                                   -fx-background-radius:7;
+                                   -fx-border-color:#E2E8F0;
+                                   -fx-border-radius:7;">
+
+                            <padding>
+                                <Insets
+                                    top="18"
+                                    right="20"
+                                    bottom="18"
+                                    left="20"/>
+                            </padding>
+
+                            <Label
+                                text="PARÁMETROS GENERALES"
+                                style="-fx-text-fill:#20487A;
+                                       -fx-font-size:15px;
+                                       -fx-font-weight:bold;"/>
+
+                            <GridPane
+                                hgap="12"
+                                vgap="10">
+
+                                <columnConstraints>
+
+                                    <ColumnConstraints
+                                        percentWidth="25"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="25"
+                                        hgrow="ALWAYS"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="25"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="25"
+                                        hgrow="ALWAYS"/>
+
+                                </columnConstraints>
+
+                                <Label
+                                    text="Moneda:"
+                                    GridPane.rowIndex="0"
+                                    GridPane.columnIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <ComboBox
+                                    fx:id="cmb_moneda"
+                                    GridPane.rowIndex="0"
+                                    GridPane.columnIndex="1"
+                                    maxWidth="Infinity"/>
+
+                                <Label
+                                    text="Días alerta OT:"
+                                    GridPane.rowIndex="0"
+                                    GridPane.columnIndex="2"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_dias_alerta"
+                                    GridPane.rowIndex="0"
+                                    GridPane.columnIndex="3"
+                                    promptText="Ej. 2"/>
+
+                                <Label
+                                    text="Porcentaje completado:"
+                                    GridPane.rowIndex="1"
+                                    GridPane.columnIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_porcentaje"
+                                    GridPane.rowIndex="1"
+                                    GridPane.columnIndex="1"
+                                    promptText="0 - 100"/>
+
+                            </GridPane>
+
+                        </VBox>
+
+                        <!-- NUMERACION -->
+
+                        <VBox
+                            spacing="12"
+                            style="-fx-background-color:white;
+                                   -fx-background-radius:7;
+                                   -fx-border-color:#E2E8F0;
+                                   -fx-border-radius:7;">
+
+                            <padding>
+                                <Insets
+                                    top="18"
+                                    right="20"
+                                    bottom="18"
+                                    left="20"/>
+                            </padding>
+
+                            <Label
+                                text="NUMERACIÓN DE ÓRDENES DE TRABAJO"
+                                style="-fx-text-fill:#20487A;
+                                       -fx-font-size:15px;
+                                       -fx-font-weight:bold;"/>
+
+                            <Label
+                                text="Define automáticamente el formato del código de las nuevas OT."
+                                style="-fx-text-fill:#64748B;
+                                       -fx-font-size:12px;"/>
+
+                            <GridPane
+                                hgap="12"
+                                vgap="10">
+
+                                <columnConstraints>
+
+                                    <ColumnConstraints
+                                        percentWidth="18"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="20"
+                                        hgrow="ALWAYS"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="15"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="15"
+                                        hgrow="ALWAYS"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="17"/>
+
+                                    <ColumnConstraints
+                                        percentWidth="15"
+                                        hgrow="ALWAYS"/>
+
+                                </columnConstraints>
+
+                                <Label
+                                    text="Prefijo:"
+                                    GridPane.columnIndex="0"
+                                    GridPane.rowIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_prefijo_ot"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="0"
+                                    promptText="OT"/>
+
+                                <Label
+                                    text="Año:"
+                                    GridPane.columnIndex="2"
+                                    GridPane.rowIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_anio_ot"
+                                    GridPane.columnIndex="3"
+                                    GridPane.rowIndex="0"
+                                    promptText="2026"/>
+
+                                <Label
+                                    text="Secuencia:"
+                                    GridPane.columnIndex="4"
+                                    GridPane.rowIndex="0"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <TextField
+                                    fx:id="txt_secuencia_ot"
+                                    GridPane.columnIndex="5"
+                                    GridPane.rowIndex="0"
+                                    promptText="1"/>
+
+                                <Label
+                                    text="Vista previa:"
+                                    GridPane.columnIndex="0"
+                                    GridPane.rowIndex="1"
+                                    style="-fx-text-fill:#334155;
+                                           -fx-font-weight:bold;"/>
+
+                                <Label
+                                    fx:id="lbl_preview_ot"
+                                    text="OT-2026-000001"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="1"
+                                    GridPane.columnSpan="3"
+                                    style="-fx-text-fill:#0878D1;
+                                           -fx-font-size:18px;
+                                           -fx-font-weight:bold;"/>
+
+                                <Label
+                                    text="Actual:"
+                                    GridPane.columnIndex="4"
+                                    GridPane.rowIndex="1"
+                                    style="-fx-text-fill:#64748B;
+                                           -fx-font-weight:bold;"/>
+
+                                <Label
+                                    fx:id="lbl_secuencia_actual"
+                                    text="1"
+                                    GridPane.columnIndex="5"
+                                    GridPane.rowIndex="1"
+                                    style="-fx-text-fill:#20487A;
+                                           -fx-font-size:15px;
+                                           -fx-font-weight:bold;"/>
+
+                            </GridPane>
+
+                            <Button
+                                text="Reiniciar numeración"
+                                onAction="#acc_nuevaNumeracion"
+                                prefWidth="170"
+                                prefHeight="34"
+                                style="-fx-background-color:#E8EEF4;
+                                       -fx-text-fill:#20487A;
+                                       -fx-font-weight:bold;
+                                       -fx-background-radius:4;"/>
+
+                        </VBox>
+
+                        <!-- NOTIFICACIONES -->
+
+                        <VBox
+                            spacing="12"
+                            style="-fx-background-color:white;
+                                   -fx-background-radius:7;
+                                   -fx-border-color:#E2E8F0;
+                                   -fx-border-radius:7;">
+
+                            <padding>
+                                <Insets
+                                    top="18"
+                                    right="20"
+                                    bottom="18"
+                                    left="20"/>
+                            </padding>
+
+                            <Label
+                                text="NOTIFICACIONES"
+                                style="-fx-text-fill:#20487A;
+                                       -fx-font-size:15px;
+                                       -fx-font-weight:bold;"/>
+
+                            <GridPane
+                                hgap="30"
+                                vgap="12">
+
+                                <CheckBox
+                                    fx:id="chk_ot_vencida"
+                                    text="Orden de Trabajo vencida"
+                                    GridPane.columnIndex="0"
+                                    GridPane.rowIndex="0"/>
+
+                                <CheckBox
+                                    fx:id="chk_ot_proxima"
+                                    text="Orden próxima a vencer"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="0"/>
+
+                                <CheckBox
+                                    fx:id="chk_arte"
+                                    text="Arte pendiente"
+                                    GridPane.columnIndex="0"
+                                    GridPane.rowIndex="1"/>
+
+                                <CheckBox
+                                    fx:id="chk_produccion"
+                                    text="Producción pendiente"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="1"/>
+
+                                <CheckBox
+                                    fx:id="chk_instalacion"
+                                    text="Instalación pendiente"
+                                    GridPane.columnIndex="0"
+                                    GridPane.rowIndex="2"/>
+
+                                <CheckBox
+                                    fx:id="chk_completada"
+                                    text="Orden completada"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="2"/>
+
+                            </GridPane>
+
+                        </VBox>
+
+                    </VBox>
+
+                </content>
+
+            </ScrollPane>
+
+            <!-- UNICOS BOTONES DE SALIDA -->
+
+            <HBox
+                alignment="CENTER_RIGHT"
+                spacing="10">
+
+                <Button
+                    fx:id="btn_cancelar"
+                    text="Cancelar"
+                    onAction="#acc_cancelar"
+                    prefWidth="110"
+                    prefHeight="40"
+                    style="-fx-background-color:#E2E8F0;
+                           -fx-text-fill:#334155;
+                           -fx-font-weight:bold;
+                           -fx-background-radius:4;"/>
+
+                <Button
+                    fx:id="btn_guardar"
+                    text="Guardar configuración"
+                    onAction="#acc_guardar"
+                    prefWidth="180"
+                    prefHeight="40"
+                    style="-fx-background-color:#0878D1;
+                           -fx-text-fill:white;
+                           -fx-font-weight:bold;
+                           -fx-background-radius:4;"/>
+
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

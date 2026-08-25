@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.FacturaController"
+    prefWidth="1050"
+    prefHeight="700"
+    style="-fx-background-color:#E4E9EB;">
+
+    <VBox
+        AnchorPane.topAnchor="0"
+        AnchorPane.rightAnchor="0"
+        AnchorPane.bottomAnchor="0"
+        AnchorPane.leftAnchor="0"
+        spacing="10">
+
+        <VBox
+            spacing="4"
+            style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets
+                    top="15"
+                    right="20"
+                    bottom="15"
+                    left="20"/>
+            </padding>
+
+            <Label
+                text="FACTURA"
+                style="-fx-text-fill:white;-fx-font-size:21px;-fx-font-weight:bold;-fx-font-style:italic;"/>
+
+            <Label
+                text="Registro y detalle de factura"
+                style="-fx-text-fill:white;-fx-font-size:12px;"/>
+
+        </VBox>
+
+        <VBox
+            spacing="10"
+            style="-fx-background-color:white;-fx-padding:15;">
+
+            <GridPane
+                hgap="10"
+                vgap="10">
+
+                <Label
+                    text="Número:"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="0"
+                    style="-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+                <TextField
+                    fx:id="txt_numero"
+                    prefWidth="180"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="0"/>
+
+                <Label
+                    text="Cliente:"
+                    GridPane.columnIndex="2"
+                    GridPane.rowIndex="0"
+                    style="-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+                <TextField
+                    fx:id="txt_cliente"
+                    prefWidth="250"
+                    GridPane.columnIndex="3"
+                    GridPane.rowIndex="0"
+                    promptText="ID o nombre del cliente"/>
+
+                <Label
+                    text="Proforma:"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="1"
+                    style="-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+                <TextField
+                    fx:id="txt_proforma"
+                    prefWidth="180"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="1"/>
+
+                <Label
+                    text="Orden de Trabajo:"
+                    GridPane.columnIndex="2"
+                    GridPane.rowIndex="1"
+                    style="-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+                <TextField
+                    fx:id="txt_ot"
+                    prefWidth="250"
+                    GridPane.columnIndex="3"
+                    GridPane.rowIndex="1"/>
+
+                <Label
+                    text="Fecha:"
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="2"
+                    style="-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+                <DatePicker
+                    fx:id="dtp_fecha"
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="2"/>
+
+                <Label
+                    text="Estado:"
+                    GridPane.columnIndex="2"
+                    GridPane.rowIndex="2"
+                    style="-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+                <ComboBox
+                    fx:id="cmb_estado"
+                    prefWidth="180"
+                    GridPane.columnIndex="3"
+                    GridPane.rowIndex="2"/>
+
+            </GridPane>
+
+            <Label
+                text="Observaciones:"
+                style="-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+            <TextArea
+                fx:id="txt_observaciones"
+                prefHeight="55"
+                wrapText="true"/>
+
+        </VBox>
+
+        <VBox
+            spacing="8"
+            VBox.vgrow="ALWAYS"
+            style="-fx-background-color:white;-fx-padding:15;">
+
+            <Label
+                text="DETALLE"
+                style="-fx-font-size:17px;-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+            <HBox
+                spacing="8"
+                alignment="CENTER_LEFT">
+
+                <TextField
+                    fx:id="txt_descripcion"
+                    prefWidth="360"
+                    promptText="Descripción"/>
+
+                <TextField
+                    fx:id="txt_cantidad"
+                    prefWidth="80"
+                    text="1"
+                    promptText="Cantidad"/>
+
+                <TextField
+                    fx:id="txt_precio"
+                    prefWidth="100"
+                    text="0"
+                    promptText="Precio"/>
+
+                <TextField
+                    fx:id="txt_descuento"
+                    prefWidth="100"
+                    text="0"
+                    promptText="Descuento"/>
+
+                <Button
+                    fx:id="btn_agregar"
+                    text="Agregar"
+                    onAction="#acc_agregar"
+                    style="-fx-background-color:#0878D1;-fx-text-fill:white;"/>
+
+                <Button
+                    fx:id="btn_quitar"
+                    text="Quitar"
+                    onAction="#acc_quitar"
+                    style="-fx-background-color:#B42318;-fx-text-fill:white;"/>
+
+            </HBox>
+
+            <TableView
+                fx:id="tb_detalles"
+                VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn
+                        fx:id="col_descripcion"
+                        text="Descripción"
+                        prefWidth="420"/>
+
+                    <TableColumn
+                        fx:id="col_cantidad"
+                        text="Cantidad"
+                        prefWidth="90"/>
+
+                    <TableColumn
+                        fx:id="col_precio"
+                        text="Precio"
+                        prefWidth="100"/>
+
+                    <TableColumn
+                        fx:id="col_descuento"
+                        text="Descuento"
+                        prefWidth="100"/>
+
+                    <TableColumn
+                        fx:id="col_total"
+                        text="Total"
+                        prefWidth="110"/>
+
+                </columns>
+
+            </TableView>
+
+            <HBox
+                alignment="CENTER_RIGHT"
+                spacing="25">
+
+                <Label
+                    text="Subtotal:"
+                    style="-fx-font-weight:bold;"/>
+
+                <Label
+                    fx:id="lbl_subtotal"
+                    text="0.00"
+                    style="-fx-font-weight:bold;"/>
+
+                <Label
+                    text="IVA:"
+                    style="-fx-font-weight:bold;"/>
+
+                <Label
+                    fx:id="lbl_iva"
+                    text="0.00"
+                    style="-fx-font-weight:bold;"/>
+
+                <Label
+                    text="TOTAL:"
+                    style="-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+                <Label
+                    fx:id="lbl_total"
+                    text="0.00"
+                    style="-fx-font-size:16px;-fx-font-weight:bold;-fx-text-fill:#20487A;"/>
+
+            </HBox>
+
+        </VBox>
+
+        <HBox
+            alignment="CENTER_RIGHT"
+            spacing="10"
+            style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets
+                    top="10"
+                    right="15"
+                    bottom="10"
+                    left="15"/>
+            </padding>
+
+            <Button
+                fx:id="btn_grabar"
+                text="Grabar"
+                onAction="#acc_grabar"
+                prefWidth="100"
+                style="-fx-background-color:white;-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+            <Button
+                fx:id="btn_cancelar"
+                text="Cancelar"
+                onAction="#acc_cancelar"
+                prefWidth="100"
+                style="-fx-background-color:#D7E0EA;-fx-text-fill:#20487A;"/>
+
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="850.0" prefWidth="1500.0" style="-fx-background-color: #E4E9EB;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="upse.SIGCAP.controlador.InstalacionesController">
+
+    <children>
+
+        <Pane prefHeight="90.0" style="-fx-background-color: #20487A;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+            <children>
+
+                <Label layoutX="28.0" layoutY="20.0" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-font-style: italic;" text="INSTALACIONES" textFill="WHITE" />
+
+                <Label layoutX="30.0" layoutY="58.0" style="-fx-font-size: 14px;" text="Gestión de instalaciones" textFill="WHITE" />
+
+            </children>
+
+        </Pane>
+
+        <VBox spacing="15.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="105.0">
+
+            <children>
+
+                <HBox prefHeight="40.0" spacing="12.0">
+
+                    <children>
+
+                        <Label prefHeight="35.0" prefWidth="65.0" style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Buscar:" />
+
+                        <TextField fx:id="txt_buscar" prefHeight="35.0" prefWidth="450.0" promptText="ID, ítem, tercero, tipo o estado" />
+
+                        <Button fx:id="btn_nuevo" onAction="#acc_nuevo" prefHeight="35.0" prefWidth="105.0" text="Nuevo" />
+
+                        <Button fx:id="btn_editar" onAction="#acc_editar" prefHeight="35.0" prefWidth="105.0" text="Editar" />
+
+                    </children>
+
+                </HBox>
+
+                <TableView fx:id="tb_instalaciones" onMouseClicked="#acc_dobleClick" VBox.vgrow="ALWAYS">
+
+                    <columns>
+
+                        <TableColumn fx:id="col_id" prefWidth="80.0" text="ID" />
+
+                        <TableColumn fx:id="col_item" prefWidth="140.0" text="Ítem" />
+
+                        <TableColumn fx:id="col_tercero" prefWidth="150.0" text="Tercero" />
+
+                        <TableColumn fx:id="col_tipo" prefWidth="190.0" text="Tipo Instalación" />
+
+                        <TableColumn fx:id="col_fecha_programada" prefWidth="200.0" text="Fecha Programada" />
+
+                        <TableColumn fx:id="col_fecha_real" prefWidth="180.0" text="Fecha Real" />
+
+                        <TableColumn fx:id="col_estado" minWidth="180.0" prefWidth="250.0" text="Estado" />
+
+                    </columns>
+
+                </TableView>
+
+            </children>
+
+        </VBox>
+
+        <Pane prefHeight="85.0" style="-fx-background-color: #20487A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+            <children>
+
+                <Button fx:id="btn_cerrar" layoutX="1338.0" layoutY="23.0" onAction="#acc_cerrar" prefHeight="40.0" prefWidth="120.0" text="Cerrar" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="23.0" />
+
+            </children>
+
+        </Pane>
+
+    </children>
+
+</AnchorPane>

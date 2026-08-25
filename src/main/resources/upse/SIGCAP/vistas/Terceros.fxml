@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.TercerosController"
+    prefWidth="1250"
+    prefHeight="760"
+    style="-fx-background-color:#E4E9EB;">
+
+    <VBox
+        spacing="12"
+        AnchorPane.topAnchor="0"
+        AnchorPane.bottomAnchor="0"
+        AnchorPane.leftAnchor="0"
+        AnchorPane.rightAnchor="0">
+
+        <padding>
+            <Insets top="18" right="22" bottom="18" left="22"/>
+        </padding>
+
+        <HBox
+            prefHeight="70"
+            alignment="CENTER_LEFT"
+            style="-fx-background-color:#20487A;-fx-background-radius:5;">
+
+            <padding>
+                <Insets top="10" right="18" bottom="10" left="18"/>
+            </padding>
+
+            <VBox
+                spacing="3"
+                HBox.hgrow="ALWAYS">
+
+                <Label
+                    text="TERCEROS"
+                    style="-fx-text-fill:white;-fx-font-size:22px;-fx-font-weight:bold;"/>
+
+                <Label
+                    text="Gestión de terceros externos"
+                    style="-fx-text-fill:#DDEAF6;-fx-font-size:12px;"/>
+
+            </VBox>
+
+            <Label
+                text="SIGCAP"
+                style="-fx-text-fill:white;-fx-font-size:14px;-fx-font-weight:bold;"/>
+
+        </HBox>
+
+        <HBox
+            spacing="10"
+            alignment="CENTER_LEFT"
+            style="-fx-background-color:white;-fx-background-radius:6;">
+
+            <padding>
+                <Insets top="12" right="12" bottom="12" left="12"/>
+            </padding>
+
+            <Label
+                text="BUSCAR"
+                style="-fx-text-fill:#20487A;-fx-font-weight:bold;"/>
+
+            <TextField
+                fx:id="txt_buscar"
+                promptText="Nombre, teléfono, correo..."
+                prefWidth="400"
+                prefHeight="34"
+                HBox.hgrow="ALWAYS"/>
+
+            <Button
+                fx:id="btn_nuevo"
+                text="Nuevo"
+                onAction="#acc_nuevo"
+                prefWidth="100"
+                prefHeight="36"
+                style="-fx-background-color:#087ED1;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+            <Button
+                fx:id="btn_editar"
+                text="Editar"
+                onAction="#acc_editar"
+                prefWidth="100"
+                prefHeight="36"
+                style="-fx-background-color:#20487A;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+            <Button
+                fx:id="btn_actualizar"
+                text="Actualizar"
+                onAction="#acc_actualizar"
+                prefWidth="110"
+                prefHeight="36"
+                style="-fx-background-color:#315F91;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        </HBox>
+
+        <VBox
+            spacing="8"
+            VBox.vgrow="ALWAYS"
+            style="-fx-background-color:white;-fx-background-radius:6;">
+
+            <padding>
+                <Insets top="14" right="14" bottom="14" left="14"/>
+            </padding>
+
+            <Label
+                text="LISTADO DE TERCEROS"
+                style="-fx-text-fill:#20487A;-fx-font-size:16px;-fx-font-weight:bold;"/>
+
+            <TableView
+                fx:id="tb_terceros"
+                VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn
+                        fx:id="col_id"
+                        text="ID"
+                        prefWidth="65"/>
+
+                    <TableColumn
+                        fx:id="col_nombre"
+                        text="Nombre"
+                        prefWidth="350"/>
+
+                    <TableColumn
+                        fx:id="col_telefono"
+                        text="Teléfono"
+                        prefWidth="180"/>
+
+                    <TableColumn
+                        fx:id="col_correo"
+                        text="Correo"
+                        prefWidth="350"/>
+
+                    <TableColumn
+                        fx:id="col_estado"
+                        text="Estado"
+                        prefWidth="100"/>
+
+                </columns>
+
+                <placeholder>
+
+                    <Label
+                        text="No existen terceros registrados."
+                        style="-fx-text-fill:#64748B;"/>
+
+                </placeholder>
+
+            </TableView>
+
+        </VBox>
+
+        <HBox
+            alignment="CENTER_RIGHT"
+            spacing="8">
+
+            <Button
+                fx:id="btn_cerrar"
+                text="Cerrar"
+                onAction="#acc_cerrar"
+                prefWidth="100"
+                prefHeight="38"
+                style="-fx-background-color:#082F52;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        </HBox>
+
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+    xmlns="http://javafx.com/javafx/13"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="upse.SIGCAP.controlador.NuevoItemOTController"
+    prefWidth="720"
+    prefHeight="560"
+    style="-fx-background-color:#E4E9EB;">
+
+    <top>
+
+        <VBox
+            spacing="3"
+            style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets
+                    top="15"
+                    right="20"
+                    bottom="15"
+                    left="20"/>
+            </padding>
+
+            <Label
+                text="AGREGAR DETALLE"
+                style="-fx-text-fill:white;-fx-font-size:18px;-fx-font-weight:bold;"/>
+
+            <Label
+                text="Defina el elemento de producción de la OT"
+                style="-fx-text-fill:#DDEAF6;-fx-font-size:11px;"/>
+
+        </VBox>
+
+    </top>
+
+    <center>
+
+        <VBox
+            spacing="15">
+
+            <padding>
+                <Insets
+                    top="20"
+                    right="25"
+                    bottom="20"
+                    left="25"/>
+            </padding>
+
+            <GridPane
+                hgap="15"
+                vgap="12">
+
+                <!-- LOCAL -->
+
+                <VBox
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="0"
+                    GridPane.hgrow="ALWAYS"
+                    spacing="4">
+
+                    <Label
+                        text="Local *"
+                        style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                    <ComboBox
+                        fx:id="cmb_local"
+                        maxWidth="Infinity"
+                        prefHeight="35"/>
+
+                </VBox>
+
+                <!-- PRODUCTO -->
+
+                <VBox
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="0"
+                    GridPane.hgrow="ALWAYS"
+                    spacing="4">
+
+                    <Label
+                        text="Producto *"
+                        style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                    <ComboBox
+                        fx:id="cmb_producto"
+                        maxWidth="Infinity"
+                        prefHeight="35"/>
+
+                </VBox>
+
+                <!-- MEDIDA -->
+
+                <VBox
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="1"
+                    GridPane.hgrow="ALWAYS"
+                    spacing="4">
+
+                    <Label
+                        text="Medida *"
+                        style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                    <ComboBox
+                        fx:id="cmb_medida"
+                        maxWidth="Infinity"
+                        prefHeight="35"/>
+
+                </VBox>
+
+                <!-- MATERIAL -->
+
+                <VBox
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="1"
+                    GridPane.hgrow="ALWAYS"
+                    spacing="4">
+
+                    <Label
+                        text="Material *"
+                        style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                    <ComboBox
+                        fx:id="cmb_material"
+                        maxWidth="Infinity"
+                        prefHeight="35"/>
+
+                </VBox>
+
+                <!-- CANTIDAD -->
+
+                <VBox
+                    GridPane.columnIndex="0"
+                    GridPane.rowIndex="2"
+                    GridPane.hgrow="ALWAYS"
+                    spacing="4">
+
+                    <Label
+                        text="Cantidad *"
+                        style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                    <Spinner
+                        fx:id="spn_cantidad"
+                        prefWidth="150"
+                        prefHeight="35"/>
+
+                </VBox>
+
+                <!-- INSTALACIÓN -->
+
+                <VBox
+                    GridPane.columnIndex="1"
+                    GridPane.rowIndex="2"
+                    GridPane.hgrow="ALWAYS"
+                    spacing="4">
+
+                    <Label
+                        text="Requiere instalación"
+                        style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                    <ComboBox
+                        fx:id="cmb_instalacion"
+                        maxWidth="Infinity"
+                        prefHeight="35"/>
+
+                </VBox>
+
+            </GridPane>
+
+            <!-- MEDIDA PERSONALIZADA -->
+
+            <VBox
+                spacing="5"
+                style="-fx-background-color:#F5F7F8;-fx-background-radius:5;">
+
+                <padding>
+                    <Insets
+                        top="10"
+                        right="12"
+                        bottom="10"
+                        left="12"/>
+                </padding>
+
+                <Label
+                    text="MEDIDA PERSONALIZADA"
+                    style="-fx-text-fill:#20487A;-fx-font-size:11px;-fx-font-weight:bold;"/>
+
+                <Label
+                    text="Ingrese ancho x alto. Ejemplo: 135 x 245 cm"
+                    style="-fx-text-fill:#64748B;-fx-font-size:10px;"/>
+
+                <TextField
+                    fx:id="txt_medidaPersonalizada"
+                    prefHeight="36"
+                    promptText="Ej.: 135 x 245 cm"/>
+
+            </VBox>
+
+            <!-- DESCRIPCIÓN -->
+
+            <VBox
+                spacing="4">
+
+                <Label
+                    text="Descripción *"
+                    style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                <TextField
+                    fx:id="txt_descripcion"
+                    prefHeight="38"
+                    promptText="Ej.: Vinil adhesivo para vitrina frontal"/>
+
+            </VBox>
+
+            <!-- OBSERVACIONES -->
+
+            <VBox
+                spacing="4">
+
+                <Label
+                    text="Observaciones"
+                    style="-fx-text-fill:#64748B;-fx-font-size:11px;"/>
+
+                <TextField
+                    fx:id="txt_observaciones"
+                    prefHeight="38"
+                    promptText="Observaciones del elemento"/>
+
+            </VBox>
+
+        </VBox>
+
+    </center>
+
+    <bottom>
+
+        <HBox
+            alignment="CENTER_RIGHT"
+            spacing="8"
+            style="-fx-background-color:#20487A;">
+
+            <padding>
+                <Insets
+                    top="10"
+                    right="20"
+                    bottom="10"
+                    left="20"/>
+            </padding>
+
+            <Button
+                text="Cancelar"
+                onAction="#acc_cancelar"
+                prefWidth="90"
+                prefHeight="35"
+                style="-fx-background-color:transparent;-fx-text-fill:white;-fx-border-color:white;-fx-border-radius:4;"/>
+
+            <Button
+                text="Agregar"
+                onAction="#acc_aceptar"
+                prefWidth="100"
+                prefHeight="35"
+                style="-fx-background-color:#0878D1;-fx-text-fill:white;-fx-font-weight:bold;-fx-background-radius:4;"/>
+
+        </HBox>
+
+    </bottom>
+
+</BorderPane>
